@@ -43,5 +43,34 @@ select e_id,m_id,job_id;
 END##
 call lastNameKingEmp();
 
--- Q write PL/SQL to display department number, department name,whose location id = 1800.
+/*Q: write PL/SQL procedure to display the grade of salaries according to the range
+=<5000 grade - C
+between 5001 to 10000 grade - B
+>10000 grade - A
+*/
+DELIMITER $$
+create procedure gradeSal()
+BEGIN 
+DECLARE e_sal int ;
+DECLARE grade varchar(2);
+select salary INTO e_sal from employees where employee_id = 108; 
+	IF e_sal <=5000 THEN 
+    SET grade = 'C';
+    ELSEIF e_sal between 5001 and 10000 THEN
+    SET grade = 'B';
+    else
+    SET grade = 'A';
+    END IF;
+select grade;
+END $$
+call gradeSal();
+
+
+
+
+
+
+
+
+
 
