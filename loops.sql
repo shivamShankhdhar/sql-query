@@ -52,3 +52,37 @@ drop procedure print_val3;
 set @str = '';
 call print_val3(1,@str);
 select @str;
+delimiter $$
+create procedure starPattern()
+begin
+declare x,y int;
+set x = 0;
+set y = 0;
+while x < 5 do
+	while y < x+1 do
+		select '*';
+		set y = y + 1;
+	end while;
+set x = x + 1;
+end while;
+end $$
+call starPattern();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
